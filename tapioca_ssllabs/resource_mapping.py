@@ -21,9 +21,4 @@ RESOURCE_MAPPING = {
         'docs': 'https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md',
         'methods': ['GET']
     },
-    'get_root_certs_raw': {
-        'resource': 'getRootCertsRaw',
-        'docs': 'https://github.com/ssllabs/ssllabs-scan/blob/master/ssllabs-api-docs-v3.md',
-        'methods': ['GET']
-    },
 }
