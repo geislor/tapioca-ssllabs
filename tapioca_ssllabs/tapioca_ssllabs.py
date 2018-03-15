@@ -8,14 +8,14 @@ from .resource_mapping import RESOURCE_MAPPING
 
 
 class SsllabsClientAdapter(JSONAdapterMixin, TapiocaAdapter):
-    api_root = 'https://api.ssllabs.com/api/v3/'
+    api_root = 'https://api.dev.ssllabs.com/api/v3/'
     resource_mapping = RESOURCE_MAPPING
 
     def get_request_kwargs(self, api_params, *args, **kwargs):
         params = super(SsllabsClientAdapter, self).get_request_kwargs(
             api_params, *args, **kwargs)
 
-        
+
 
         return params
 
