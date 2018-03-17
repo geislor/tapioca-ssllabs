@@ -11,7 +11,7 @@ class SsllabsClientAdapter(JSONAdapterMixin, TapiocaAdapter):
     resource_mapping = RESOURCE_MAPPING
 
     def get_api_root(self, api_params):
-        version = api_params.get('protocol', 'v3')  # default https
+        version = api_params.get('version', 'v3')  # default https
         return self.api_root.format(version=version)
 
     def get_request_kwargs(self, api_params, *args, **kwargs):
