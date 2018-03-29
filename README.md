@@ -7,10 +7,10 @@ pip install tapioca-ssllabs
 
 ## Documentation
 ``` python
-from tapioca_ssllabs import Ssllabs
+from tapioca_ssllabs import SslLabs
 
 
-api = Ssllabs()
+api = SslLabs()
 
 ```
 

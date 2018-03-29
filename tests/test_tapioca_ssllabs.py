@@ -4,13 +4,14 @@ import unittest
 import json
 from argparse import Namespace
 
-from tapioca_ssllabs import Ssllabs
+from tapioca_ssllabs import SslLabs
+from tapioca_ssllabs.exceptions import InvocationErrorException
 
 
-class TestTapiocaSsllabs(unittest.TestCase):
+class TestTapiocaSslLabs(unittest.TestCase):
 
     def setUp(self):
-        self.wrapper = Ssllabs()
+        self.wrapper = SslLabs()
 
     def test_info(self):
         response = self.wrapper.info().get()
@@ -23,6 +24,17 @@ class TestTapiocaSsllabs(unittest.TestCase):
         response = self.wrapper.analyze().get(params=params)
         analyze = json.loads(json.dumps(response().data), object_hook=lambda d: Namespace(**d))
         self.assertEqual(analyze.host, 'www.ssllabs.com')
+
+    def test_analyze_bad_input(self):
+        params = {'host': '.invalid.host', 'startNew': 'on'}
+        try:
+            self.wrapper.analyze().get(params=params)
+
+            # should not get to this point, as InvocationErrorException must have been raised
+            self.assertTrue(False)
+
+        except InvocationErrorException as e:
+            self.assertEqual('Invalid host', str(e))
 
     def test_get_endpoint_data(self):
         params = {'host': 'www.ssllabs.com',

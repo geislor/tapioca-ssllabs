@@ -2,7 +2,7 @@
 
 __author__ = 'Geislor Crestani'
 __email__ = 'geislor@gmail.com'
-__version__ = '0.4'
+__version__ = '0.5'
 
 
-from .tapioca_ssllabs import Ssllabs  # noqa
+from .tapioca_ssllabs import SslLabs  # noqa

@@ -72,7 +72,7 @@ setup(
     long_description=readme,
     author=get_author(package),
     author_email=get_email(package),
-    url='https://github.com/geislor/tapioca-ssllabs',
+    url='https://github.com/siteblindado/tapioca-ssllabs',
     packages=[
         'tapioca_ssllabs',
     ],
