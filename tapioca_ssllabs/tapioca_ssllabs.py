@@ -37,16 +37,16 @@ class SslLabsClientAdapter(JSONAdapterMixin, TapiocaAdapter):
             raise ResponseProcessException(InvocationErrorException, data)
 
         elif response.status_code == 429:
-            raise ResponseProcessException(ClientOverloadedException)
+            raise ResponseProcessException(ClientOverloadedException, None)
 
         elif response.status_code == 500:
-            raise ResponseProcessException(InternalServerErrorException)
+            raise ResponseProcessException(InternalServerErrorException, None)
 
         elif response.status_code == 503:
-            raise ResponseProcessException(ServiceUnavailableException)
+            raise ResponseProcessException(ServiceUnavailableException, None)
 
         elif response.status_code == 529:
-            raise ResponseProcessException(ServiceOverloadedException)
+            raise ResponseProcessException(ServiceOverloadedException, None)
 
         data = self.response_to_native(response)
 
